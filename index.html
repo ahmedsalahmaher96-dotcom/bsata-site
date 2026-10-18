@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ببساطة | be.bsata</title>
+  <meta name="description" content="كل ما يخص الذكاء الاصطناعي Ai — be.bsata">
+  <meta name="theme-color" content="#F89818">
+  <meta property="og:title" content="ببساطة | be.bsata">
+  <meta property="og:description" content="كل ما يخص الذكاء الاصطناعي Ai">
+  <meta property="og:image" content="assets/avatar.png">
+  <link rel="icon" href="assets/avatar.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/avatar.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="home">
+    <div class="wrap">
+      <section class="profile" aria-label="القناة">
+        <div class="avatar"><img id="avatar" src="assets/avatar.png" alt="ببساطة — be.bsata" width="120" height="120"></div>
+        <h1 class="profile__name" id="displayName">ببساطة</h1>
+        <p class="profile__handle en" id="handle">@be.bsata</p>
+        <span class="profile__role en" id="role">Reel creator</span>
+        <p class="profile__bio" id="bio">كل ما يخص الذكاء الاصطناعي Ai</p>
+      </section>
+
+      <nav class="socials" id="socials" aria-label="حساباتي"></nav>
+
+      <a class="btn btn--primary home__cta" href="library.html">
+        استكشف المكتبة
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      </a>
+
+      <p class="home__foot en" id="foot">© be.bsata</p>
+    </div>
+  </main>
+
+  <script src="data/library.js"></script>
+  <script src="js/icons.js"></script>
+  <script>
+    (function () {
+      var S = window.SITE || {};
+      var $ = function (id) { return document.getElementById(id); };
+      if (S.displayName) { $('displayName').textContent = S.displayName; document.title = S.displayName + ' | ' + (S.name || ''); }
+      if (S.name) { $('handle').textContent = '@' + S.name; $('foot').textContent = '© ' + new Date().getFullYear() + ' ' + S.name; }
+      if (S.role) $('role').textContent = S.role; else $('role').hidden = true;
+      if (S.bio) $('bio').textContent = S.bio;
+      if (S.avatar) $('avatar').src = S.avatar;
+
+      var nav = $('socials');
+      (S.socials || []).forEach(function (s) {
+        if (!s || !s.url) return;                      // never render an empty link
+        var a = document.createElement('a');
+        a.className = 'social';
+        a.href = s.url; a.target = '_blank'; a.rel = 'noopener';
+        a.innerHTML = '<span class="social__icon">' + (window.ICONS[s.platform] || window.ICONS.website) + '</span>' +
+                      '<span class="en"></span>' +
+                      '<span class="social__go" aria-hidden="true">' + window.ICONS.external + '</span>';
+        a.querySelector('.en').textContent = s.label || s.platform;
+        nav.appendChild(a);
+      });
+      if (!nav.children.length) nav.hidden = true;
+    })();
+  </script>
+</body>
+</html>

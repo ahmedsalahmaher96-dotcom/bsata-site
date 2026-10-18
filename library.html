@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>My Library | ببساطة</title>
+  <meta name="description" content="مكتبة ببساطة: Prompts وAI Tools وSkills">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta property="og:title" content="My Library | ببساطة">
+  <meta property="og:description" content="Prompts · AI Tools · Skills & Files">
+  <meta property="og:image" content="assets/avatar.png">
+  <link rel="icon" href="assets/avatar.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap wrap--wide">
+      <a class="topbar__brand" href="index.html" aria-label="الصفحة الرئيسية">
+        <img src="assets/avatar.png" alt="" width="34" height="34">
+        <span id="brandName">ببساطة</span>
+      </a>
+      <a class="topbar__back" href="index.html"><span id="backIcon"></span>الرئيسية</a>
+    </div>
+  </header>
+
+  <main class="wrap wrap--wide">
+    <div class="lib-head">
+      <h1><span class="en">My Library</span></h1>
+      <p>البرومبتات والأدوات والـ Skills في مكان واحد</p>
+    </div>
+
+    <div class="controls">
+      <label class="search">
+        <span class="sr-only">ابحث في المكتبة</span>
+        <span id="searchIcon"></span>
+        <input id="q" type="search" placeholder="ابحث في المكتبة…" autocomplete="off" enterkeyhint="search">
+      </label>
+      <div class="tabs" role="tablist" aria-label="التصنيفات">
+        <button class="tab" role="tab" aria-selected="true" data-type="all">الكل <span class="tab__count" data-count="all">0</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-type="prompt"><span class="en">Prompts</span> <span class="tab__count" data-count="prompt">0</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-type="tool"><span class="en">AI Tools</span> <span class="tab__count" data-count="tool">0</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-type="skill"><span class="en">Skills &amp; Files</span> <span class="tab__count" data-count="skill">0</span></button>
+      </div>
+    </div>
+
+    <section class="results" id="results" aria-live="polite"></section>
+  </main>
+
+  <dialog class="viewer" id="viewer" aria-labelledby="viewerTitle">
+    <div class="viewer__head">
+      <h2 class="viewer__title" id="viewerTitle"></h2>
+      <button class="viewer__close" type="button" id="viewerClose" aria-label="إغلاق"></button>
+    </div>
+    <div class="viewer__body"><pre class="viewer__text" id="viewerText"></pre></div>
+    <div class="viewer__foot"><button class="btn btn--primary" type="button" id="viewerCopy"></button></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data/library.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/library.js"></script>
+</body>
+</html>
