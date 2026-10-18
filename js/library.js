@@ -72,6 +72,22 @@
     a.innerHTML = icon; a.appendChild(document.createTextNode(label));
     return a;
   }
+  // Files hosted with the site (files/…) can be downloaded directly; external links can only be opened.
+  function isLocalFile(href) { return !/^https?:\/\//i.test(href); }
+  function fileName(title, href) {
+    var ext = (href.split('?')[0].match(/\.([a-z0-9]{2,5})$/i) || [])[1];
+    var base = title.replace(/[\\\/:*?"<>|]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 80) || 'file';
+    return ext ? base + '.' + ext.toLowerCase() : base;
+  }
+  function downloadBtn(it) {
+    var href = it.download, pdf = /\.pdf($|\?)/i.test(href);
+    var a = el('a', 'btn btn--sm btn--primary');
+    a.href = href;
+    if (isLocalFile(href)) a.setAttribute('download', fileName(it.title, href));   // save to the device
+    else { a.target = '_blank'; a.rel = 'noopener'; }                            // external: open the link
+    a.innerHTML = I.download; a.appendChild(document.createTextNode(pdf ? 'تحميل PDF' : 'تحميل'));
+    return a;
+  }
   function actionBtn(label, icon, primary, onClick) {
     var b = el('button', 'btn btn--sm ' + (primary ? 'btn--primary' : 'btn--soft'));
     b.type = 'button'; b.innerHTML = icon; b.appendChild(document.createTextNode(label));
@@ -96,7 +112,11 @@
     }
     if (it.type === 'tool' && it.url) actions.appendChild(linkBtn(it.url, 'زيارة الموقع', I.external, true));
     if (it.type === 'skill') {
-      if (it.download) actions.appendChild(linkBtn(it.download, /\.pdf($|\?)/i.test(it.download) ? 'تحميل PDF' : 'تحميل', I.download, true));
+      if (it.download) {
+        actions.appendChild(downloadBtn(it));
+        // a viewable copy too (PDF/images open in the browser), useful inside Instagram/TikTok where downloads may be blocked
+        if (isLocalFile(it.download) && /\.(pdf|png|jpe?g|webp|gif|txt|md)($|\?)/i.test(it.download)) actions.appendChild(linkBtn(it.download, 'عرض', I.eye, false));
+      }
       if (it.url) actions.appendChild(linkBtn(it.url, 'فتح', I.open, !it.download));
     }
     if (it.type === 'prompt' && it.url) actions.appendChild(linkBtn(it.url, 'رابط', I.open, false));
