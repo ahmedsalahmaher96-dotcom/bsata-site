@@ -35,10 +35,5 @@ window.LIBRARY = [
     "type": "skill",
     "title": "Prompt_Engineering_Arabic_Guide",
     "download": "files/prompt_engineering_arabic_guide-2.pdf"
-  },
-  {
-    "type": "skill",
-    "title": "Prompt_Engineering_Arabic_Guide",
-    "download": "files/prompt_engineering_arabic_guide-2.pdf"
   }
 ];
