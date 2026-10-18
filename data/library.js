@@ -30,4 +30,10 @@ window.SITE = {
   ]
 };
 
-window.LIBRARY = [];
+window.LIBRARY = [
+  {
+    "type": "prompt",
+    "title": "لؤل",
+    "prompt": "ااتبغ"
+  }
+];
