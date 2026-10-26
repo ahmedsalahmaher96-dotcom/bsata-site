@@ -38,6 +38,11 @@ window.LIBRARY = [
   },
   {
     "type": "skill",
+    "title": "interview",
+    "url": "https://interview00.netlify.app"
+  },
+  {
+    "type": "skill",
     "title": "video-ad-editor-main 4",
     "url": "https://drive.google.com/file/d/17eHYHFTb42vF6VbNjotVisHlZFPkzc2S/view?usp=sharing"
   },
