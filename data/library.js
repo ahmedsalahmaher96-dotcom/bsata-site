@@ -2,7 +2,7 @@
    ملف بيانات موقع «ببساطة» — يُنشأ من محرر المكتبة (bsata-editor/editor.html)
    SITE: بيانات القناة وروابط الحسابات
    LIBRARY: البرومبتات والأدوات والـ Skills (الأحدث أولاً)
-   آخر تحديث: 2026-10-21
+   آخر تحديث: 2026-10-26
    ========================================================= */
 
 window.SITE = {
@@ -31,6 +31,11 @@ window.SITE = {
 };
 
 window.LIBRARY = [
+  {
+    "type": "skill",
+    "title": "video-ad-editor-main 4",
+    "download": "files/video-ad-editor-main-4.zip"
+  },
   {
     "type": "prompt",
     "title": "ال CV بنظام ال ATS",
