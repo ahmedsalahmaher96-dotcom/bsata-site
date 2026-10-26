@@ -29,7 +29,7 @@
 
       <nav class="socials" id="socials" aria-label="حساباتي"></nav>
 
-      <a class="btn btn--primary home__cta" href="library.html">
+      <a class="btn btn--primary home__cta" href="library.html" onclick="window.track && window.track('زر المكتبة')">
         استكشف المكتبة
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
       </a>
@@ -39,6 +39,7 @@
   </main>
 
   <script src="data/library.js"></script>
+  <script src="js/analytics.js"></script>
   <script src="js/icons.js"></script>
   <script>
     (function () {
@@ -60,6 +61,7 @@
                       '<span class="en"></span>' +
                       '<span class="social__go" aria-hidden="true">' + window.ICONS.external + '</span>';
         a.querySelector('.en').textContent = s.label || s.platform;
+        a.addEventListener('click', function () { if (window.track) window.track('حساب', s.label || s.platform); });
         nav.appendChild(a);
       });
       if (!nav.children.length) nav.hidden = true;

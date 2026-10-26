@@ -83,11 +83,13 @@
     var href = it.download, pdf = /\.pdf($|\?)/i.test(href);
     var a = el('a', 'btn btn--sm btn--primary');
     a.href = href;
+    a.addEventListener('click', function () { if (window.track) window.track('تحميل ملف', it.title); });
     if (isLocalFile(href)) a.setAttribute('download', fileName(it.title, href));   // save to the device
     else { a.target = '_blank'; a.rel = 'noopener'; }                            // external: open the link
     a.innerHTML = I.download; a.appendChild(document.createTextNode(pdf ? 'تحميل PDF' : 'تحميل'));
     return a;
   }
+  function tracked(a, name, title) { a.addEventListener('click', function () { if (window.track) window.track(name, title); }); return a; }
   function actionBtn(label, icon, primary, onClick) {
     var b = el('button', 'btn btn--sm ' + (primary ? 'btn--primary' : 'btn--soft'));
     b.type = 'button'; b.innerHTML = icon; b.appendChild(document.createTextNode(label));
@@ -107,17 +109,17 @@
 
     var actions = el('div', 'card__actions');
     if (it.type === 'prompt' && it.prompt) {
-      actions.appendChild(actionBtn('نسخ البرومبت', I.copy, true, function () { copy(it.prompt); }));
-      actions.appendChild(actionBtn('عرض كامل', I.eye, false, function (e) { openViewer(it, e.currentTarget); }));
+      actions.appendChild(actionBtn('نسخ البرومبت', I.copy, true, function () { copy(it.prompt); if (window.track) window.track('نسخ برومبت', it.title); }));
+      actions.appendChild(actionBtn('عرض كامل', I.eye, false, function (e) { openViewer(it, e.currentTarget); if (window.track) window.track('عرض برومبت', it.title); }));
     }
-    if (it.type === 'tool' && it.url) actions.appendChild(linkBtn(it.url, 'زيارة الموقع', I.external, true));
+    if (it.type === 'tool' && it.url) actions.appendChild(tracked(linkBtn(it.url, 'زيارة الموقع', I.external, true), 'زيارة أداة', it.title));
     if (it.type === 'skill') {
       if (it.download) {
         actions.appendChild(downloadBtn(it));
         // a viewable copy too (PDF/images open in the browser), useful inside Instagram/TikTok where downloads may be blocked
-        if (isLocalFile(it.download) && /\.(pdf|png|jpe?g|webp|gif|txt|md)($|\?)/i.test(it.download)) actions.appendChild(linkBtn(it.download, 'عرض', I.eye, false));
+        if (isLocalFile(it.download) && /\.(pdf|png|jpe?g|webp|gif|txt|md)($|\?)/i.test(it.download)) actions.appendChild(tracked(linkBtn(it.download, 'عرض', I.eye, false), 'عرض ملف', it.title));
       }
-      if (it.url) actions.appendChild(linkBtn(it.url, 'فتح', I.open, !it.download));
+      if (it.url) actions.appendChild(tracked(linkBtn(it.url, 'فتح', I.open, !it.download), 'فتح رابط', it.title));
     }
     if (it.type === 'prompt' && it.url) actions.appendChild(linkBtn(it.url, 'رابط', I.open, false));
     if (actions.children.length) c.appendChild(actions);
@@ -184,10 +186,12 @@
   });
 
   /* ---------- search ---------- */
-  var timer;
+  var timer, searchTimer;
   q.addEventListener('input', function () {
     clearTimeout(timer);
     timer = setTimeout(function () { state.query = q.value; render(); }, 120);
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function () { var v = q.value.trim(); if (v.length >= 2 && window.track) window.track('بحث', v.slice(0, 40)); }, 1500);
   });
 
   /* ---------- copy (Clipboard API, with a fallback for in-app browsers) ---------- */
