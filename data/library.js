@@ -2,7 +2,7 @@
    ملف بيانات موقع «ببساطة» — يُنشأ من محرر المكتبة (bsata-editor/editor.html)
    SITE: بيانات القناة وروابط الحسابات
    LIBRARY: البرومبتات والأدوات والـ Skills (الأحدث أولاً)
-   آخر تحديث: 2026-10-26
+   آخر تحديث: 2026-10-28
    ========================================================= */
 
 window.SITE = {
@@ -32,9 +32,14 @@ window.SITE = {
 
 window.LIBRARY = [
   {
-    "type": "skill",
-    "title": "interview",
-    "url": "https://interview00.netlify.app"
+    "type": "tool",
+    "title": "Lovable",
+    "url": "https://lovable.dev/"
+  },
+  {
+    "type": "tool",
+    "title": "Perplexity",
+    "url": "https://www.perplexity.ai/"
   },
   {
     "type": "skill",
