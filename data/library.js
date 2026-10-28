@@ -33,6 +33,11 @@ window.SITE = {
 window.LIBRARY = [
   {
     "type": "tool",
+    "title": "Kling",
+    "url": "https://kling.ai/"
+  },
+  {
+    "type": "tool",
     "title": "Lovable",
     "url": "https://lovable.dev/"
   },
