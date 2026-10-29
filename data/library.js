@@ -2,7 +2,7 @@
    ملف بيانات موقع «ببساطة» — يُنشأ من محرر المكتبة (bsata-editor/editor.html)
    SITE: بيانات القناة وروابط الحسابات
    LIBRARY: البرومبتات والأدوات والـ Skills (الأحدث أولاً)
-   آخر تحديث: 2026-10-28
+   آخر تحديث: 2026-10-29
    ========================================================= */
 
 window.SITE = {
@@ -31,6 +31,11 @@ window.SITE = {
 };
 
 window.LIBRARY = [
+  {
+    "type": "tool",
+    "title": "جسم الانسان 3D",
+    "url": "https://app.astra-ai.co/en-US/lab/human-body-3d"
+  },
   {
     "type": "tool",
     "title": "Kling",
