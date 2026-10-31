@@ -2,7 +2,7 @@
    ملف بيانات موقع «ببساطة» — يُنشأ من محرر المكتبة (bsata-editor/editor.html)
    SITE: بيانات القناة وروابط الحسابات
    LIBRARY: البرومبتات والأدوات والـ Skills (الأحدث أولاً)
-   آخر تحديث: 2026-10-29
+   آخر تحديث: 2026-10-31
    ========================================================= */
 
 window.SITE = {
@@ -31,6 +31,11 @@ window.SITE = {
 };
 
 window.LIBRARY = [
+  {
+    "type": "skill",
+    "title": "Claude-Excel-Guide-Blue",
+    "download": "files/claude-excel-guide-blue.pdf"
+  },
   {
     "type": "tool",
     "title": "جسم الانسان 3D",
