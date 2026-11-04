@@ -2,7 +2,7 @@
    ملف بيانات موقع «ببساطة» — يُنشأ من محرر المكتبة (bsata-editor/editor.html)
    SITE: بيانات القناة وروابط الحسابات
    LIBRARY: البرومبتات والأدوات والـ Skills (الأحدث أولاً)
-   آخر تحديث: 2026-10-31
+   آخر تحديث: 2026-11-04
    ========================================================= */
 
 window.SITE = {
@@ -31,6 +31,11 @@ window.SITE = {
 };
 
 window.LIBRARY = [
+  {
+    "type": "skill",
+    "title": "ARDUINO | اردوينو",
+    "url": "https://learn-arduino-red.vercel.app/?fbclid=PAVERFWAVWZPJleHRuA2FlbQIxMABwZG9mAmZkaWQWURjgxjHOWzJSn7IW7mUmIY8GL8GzjHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp2CP-iq6Pdn887wfwNg57S_oTKiVOvUK9N0L11Rop72UwazRUu1-UVIkodbk_aem_G8JOzoq_VYfp0Td7ZON4KA#motor"
+  },
   {
     "type": "skill",
     "title": "Claude-Excel-Guide-Blue",
