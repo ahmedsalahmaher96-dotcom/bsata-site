@@ -2,7 +2,7 @@
    ملف بيانات موقع «ببساطة» — يُنشأ من محرر المكتبة (bsata-editor/editor.html)
    SITE: بيانات القناة وروابط الحسابات
    LIBRARY: البرومبتات والأدوات والـ Skills (الأحدث أولاً)
-   آخر تحديث: 2026-11-04
+   آخر تحديث: 2026-11-12
    ========================================================= */
 
 window.SITE = {
@@ -31,6 +31,11 @@ window.SITE = {
 };
 
 window.LIBRARY = [
+  {
+    "type": "skill",
+    "title": "markitdown-main",
+    "download": "files/markitdown-main.zip"
+  },
   {
     "type": "skill",
     "title": "ARDUINO | اردوينو",
