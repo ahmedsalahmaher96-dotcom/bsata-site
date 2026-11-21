@@ -32,6 +32,11 @@ window.SITE = {
 
 window.LIBRARY = [
   {
+    "type": "skill",
+    "title": "Website",
+    "download": "files/ui-ux-pro-max-skill-main.zip"
+  },
+  {
     "type": "prompt",
     "title": "Website",
     "prompt": "Add the 21st MCP server to Claude Code.\n\n1. Register the server:\n```bash\nclaude mcp add --transport http 21st https://21st.dev/api/mcp --header \"x-api-key: 21st_sk_41852a0f85b36f9a811d5af32b86da653ea5e1eb7d4273d9ccd23281da4ad117\"\n```\n\n2. Or write the project config (.mcp.json):\n```bash\nnpx @21st-dev/cli init --client claude --write\n```\n\n3. Verify: run `claude mcp list` and confirm 21st shows as connected.\n\n4. Or install everything as a plugin (bundles the MCP server with the 21st.dev skills):\n```\n/plugin marketplace add 21st-dev/claude-code-plugin\n/plugin install 21st@21st\n```"
