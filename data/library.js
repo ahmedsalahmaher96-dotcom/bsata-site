@@ -2,7 +2,7 @@
    ملف بيانات موقع «ببساطة» — يُنشأ من محرر المكتبة (bsata-editor/editor.html)
    SITE: بيانات القناة وروابط الحسابات
    LIBRARY: البرومبتات والأدوات والـ Skills (الأحدث أولاً)
-   آخر تحديث: 2026-11-21
+   آخر تحديث: 2026-11-22
    ========================================================= */
 
 window.SITE = {
@@ -31,6 +31,11 @@ window.SITE = {
 };
 
 window.LIBRARY = [
+  {
+    "type": "skill",
+    "title": "قرآن",
+    "url": "https://quran.com/media"
+  },
   {
     "type": "skill",
     "title": "Website",
